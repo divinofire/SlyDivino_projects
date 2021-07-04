@@ -3,14 +3,14 @@
 
 ## some basic git commands for collaborators to remember (preq: install git)
 
-### clone this repository on local machine 
+### 1. clone this repository on local machine 
 go to your desired folder and perform the following command
 `git clone [repoURL]`
 
-### after desired edits, push your changes to cloud
+### 2. after desired edits, push your changes to cloud
 `git push origin master`
 
-### before doing any edits, pull changes.
+### 3. before doing any edits, pull changes.
 `git pull origin master`
 
 
