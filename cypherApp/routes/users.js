@@ -13,11 +13,15 @@ router.use(session({secret: 'keyword cat',  resave: false, saveUninitialized: tr
 router.use(fileupload());
 router.use(bodyParser.urlencoded({extended: false}));
 
+var fileName = '';
+
 router.post('/loadfile', (req, res) => {
   console.log("react to post action - loadFile");
   
   try{
       var logFile = req.files.fileName;
+      fileName = logFile.name;
+      console.log(logFile);
       var inputAreaText = req.body.inputText;
       var outputAreaText = req.body.outputText;
 
@@ -51,7 +55,7 @@ catch(error){
   });
 
   outputAreaText = cyphered;
-
+  req.session.fileName = fileName;
   req.session.inputAreaText = inputAreaText;
   req.session.outputAreaText = outputAreaText;
   if (keyChanged) key = -key;
@@ -109,6 +113,7 @@ router.post('/loadtext', (req, res) => {
   });
 outputAreaText = cyphered;
 
+req.session.fileName = fileName;
 req.session.inputAreaText = inputAreaText;
 req.session.outputAreaText = outputAreaText;
 if (keyChanged) key = -key;

@@ -11,7 +11,9 @@ router.get('/', function(req, res, next) {
   let inputAreaText = req.session.inputAreaText ||  "input your text here";
   let outputAreaText = req.session.outputAreaText || "output will display here";
   let key = req.session.key || "0";
-  res.render('index', { inputAreaText: inputAreaText , outputAreaText: outputAreaText, key : key});
+  let fileName = req.session.fileName;
+
+  res.render('index', { inputAreaText: inputAreaText , outputAreaText: outputAreaText, key: key, fileName: fileName});
 });
 
 
