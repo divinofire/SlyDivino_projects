@@ -1,12 +1,12 @@
 # cypherApp
 
-This application encrypts or decrypts information from an input window or text file in a text based a key
+This application encrypts or decrypts information from an input window or text file based on a key
 and outputs the results in an output window
 
 ## This application is built on:
  1. node js - to create the backend logic
  2. express - a framework based on that makes it very easy to create our backend logic
- 3. ejs - html/js template which makes it easy to serve dynamic content
+ 3. ejs - html/js template which makes it easy to serve dynamic content on frontend 
 
  ---
 
@@ -27,9 +27,9 @@ npm install express express-session body-parser ejs consolidate swig morgan expr
 ```
 
 ## run application
-on powershell: `$env:DEBUG='cypherApp:*'; npm start` 
-on cmd: `set DEBUG=cypherApp:* & npm start`
-on macOS or linux : `DEBUG=cypherApp:* & npm start`
+1. on powershell: `$env:DEBUG='cypherApp:*'; npm start` 
+2. on cmd: `set DEBUG=cypherApp:* & npm start`
+3. on macOS or linux : `DEBUG=cypherApp:* & npm start`
 
 ## access running application on local machine
 on your browser : `http://localhost:3000` (you can change this value in the app)
