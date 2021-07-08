@@ -1,34 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>cypherApp</title>
-	<link rel="stylesheet" href="../../stylesheets/index.css">
-</head>
-<h1>cypher and decypher text</h1>
-<body>
-		<form action="/loadfile" method="post" enctype="multipart/form-data">
+  <head>
+    <meta charset="utf-8" />
+    <title>cypherApp</title>
+    <link rel="stylesheet" href="../../stylesheets/index.css" />
+  </head>
+  <body>
+    <h1>Ncript</h1>
 
-			<label>input</label><br>
-			<textarea name="inputText" style = "width: 500px; height: 100px;" ><%= inputAreaText %></textarea> 
-
-			or file <input type="file" name="fileName" style = "width: 200px; height: 40px;"/>[prev: <%= fileName %>] <br>
-
-			key <input name = "key" type="number" value="<%= key %>" /> <br> <br>
-			<div>
-				<input type="radio"  name="encrypt" value="true" checked="true" /><label>cypher</label> <br>
-				<input type="radio" name="encrypt" value="false" /><label>decypher</label> <br><br>
-			</div>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="submitText" type="submit" formaction="/loadtext">submit text</button> &nbsp;&nbsp; <input value="submit file" type="submit"><br>
-
-		</form>
-		<br><br><br>
-
-<div>
-	<label>ouput:</label><br>
-	<textarea  style = "width: 800px; height: 250px;" name="ouputText"><%= outputAreaText %></textarea>
-</div>
-
-<script type="text/javascript" src="../../javascripts/jquery-3.6.0-dev.js"></script>
-</body>
+    <div class="main-display">
+      <form action="/loadfile" method="post" enctype="multipart/form-data">
+		<div class="Buttons">
+			<p>
+			  <input
+				type="file"
+				name="fileName"
+			  />
+			</p>
+			<p class="key">key <input name="key" type="number" value="<%= key %>" /></p>
+			<p>
+			  <input
+				type="radio"
+				name="encrypt"
+				value="true"
+				checked="true"
+			  /><label>cypher</label>
+			</p>
+			<p>
+			  <input type="radio" name="encrypt" value="false" /><label>decypher</label>
+			</p>
+			<p>
+			  <button id="submitText" type="submit" formaction="/loadtext">
+				submit text
+			  </button>
+			</p>
+			<p>
+				<input value="submit file" type="submit" />
+			</p>
+		  </div>
+        <textarea name="inputText"><%= inputAreaText %></textarea>
+      </form>
+    <div class="output-section">
+      <textarea name="ouputText"><%= outputAreaText %></textarea>
+    </div>
+	</div>
+    <script
+      type="text/javascript"
+      src="../../javascripts/jquery-3.6.0-dev.js"
+    ></script>
+  </body>
 </html>
