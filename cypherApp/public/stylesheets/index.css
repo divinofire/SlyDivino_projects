@@ -1,8 +1,58 @@
 body {
   padding: 50px;
+  height: 80vh;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.main-display {
+  display: flex;
+  justify-content: center;
+  background: teal;
+  height: 600px;
+}
+
+form {
+  display: flex;
+  padding: 10px;
+}
+
+.Buttons {
+  padding: 5px;
+}
+
+[name="inputText"]{
+ background-color: #00B7FF;
+ border: none;
+}
+
+
+[name="ouputText"] {
+  background-color: #795994;
+  border: none;
+}
+
+.output-section {
+  display: flex;
+  padding: 10px;
+
+}
+
+[type="submit"] {
+  background-color: orange;
+  border: none;
+}
+
+[name="key"] {
+  background-color: aqua;
+  border: none;
+  width: 50px;
+}
+
+.key {
+  background-color: rgb(212, 100, 25);
+  width: 100px;
 }
