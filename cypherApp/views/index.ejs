@@ -10,6 +10,7 @@
 
     <div class="main-display">
       <form action="/loadfile" method="post" enctype="multipart/form-data">
+		
 		<div class="Buttons">
 			<p class ="choose-file-button">
 			  <input
@@ -41,16 +42,20 @@
 			<p>
 				<input value="Submit File" type="submit" />
 			</p>
-		  </div>
+		 </div>
         <textarea name="inputText"><%= inputAreaText %></textarea>
-      </form>
+      
+	</form>
+
     <div class="output-section">
       <textarea name="ouputText"><%= outputAreaText %></textarea>
     </div>
+	
 	</div>
     <script
       type="text/javascript"
       src="../../javascripts/jquery-3.6.0-dev.js"
     ></script>
+	<p class="copyright"> Copyrights©2021 </p>
   </body>
 </html>
