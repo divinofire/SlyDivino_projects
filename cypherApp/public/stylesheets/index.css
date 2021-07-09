@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Vampiro+One&display=swap');
 
 body {
+  background-color: rgb(61, 59, 59);
+  background-image: url('background.jpg'); 
+  background-size: contain;
+  background-blend-mode: multiply;
   padding: 50px;
   height: 80vh;
   font: 14px "Poppins" , Helvetica, Arial, sans-serif;
@@ -9,6 +13,7 @@ body {
 h1{
   font-family: 'Vampiro One',Helvetica, Arial, sans-serif;
   font-size: 66px;
+  color: #F4E7E5;
   margin: 5px 0px 50px 50px; 
   width: fit-content;
 }
@@ -17,7 +22,6 @@ h1{
   display: flex;
   padding: 20px;
   justify-content: center;
-  background: teal;
   height: 600px;
 }
 
@@ -39,7 +43,7 @@ form {
 
 
 [name="inputText"]{
- background-color: #00B7FF;
+ background-color: #F4E7E5;
  border: none;
  border-radius: 10px;
  padding: 20px;
@@ -49,7 +53,7 @@ form {
 
 
 [name="ouputText"] {
-  background-color: #795994;
+  background-color: #F4E7E5;
   border: none;
   border-radius: 10px;
   padding: 20px;
@@ -65,7 +69,7 @@ form {
 }
 
 [type="submit"] {
-  background-color: orange;
+  background-color: #FAA364;
   border: none;
   width: auto;
   padding: 10px  25px 10px 25px;
@@ -77,17 +81,19 @@ form {
   background-color: rgb(35, 243, 98);
 }
 
+
 [name="key"] {
-  background-color: rgb(255, 206, 160);
+  background-color: #F4E7E5;
   border: none;
   border-radius: 5px;
   width: 50px;
   height: 20px;
+  padding: 5px;
   margin-left: 10px;
 }
 
 [type="file"] {
-  background-color: orange;
+  background-color: #FAA364;
   border: none;
   width: 180px;
   padding: 10px;
@@ -110,7 +116,7 @@ hr {
 }
 
 .cypher-button {
-  background-color: orange;
+  background-color: #F97D7D;
   border: none;
   width: 100px;
   padding: 10px;
@@ -121,7 +127,7 @@ hr {
 }
 
 .decypher-button {
-  background-color: orange;
+  background-color: #B5E896;
   border: none;
   width: 100px;
   padding: 10px;
@@ -133,7 +139,7 @@ hr {
 }
 
 .key {
-  background-color: orange;
+  background-color: #FAA364;
   border: none;
   width: 100px;
   padding: 10px;
@@ -148,4 +154,11 @@ p {
   width: fit-content;
   position: relative;
   left: 40px;
+}
+
+.copyright {
+  color: #F4E7E5;
+  opacity: 0.7;
+  position:relative;
+  left: 50%;
 }
