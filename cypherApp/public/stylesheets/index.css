@@ -10,6 +10,7 @@ a {
 
 .main-display {
   display: flex;
+  padding: 20px;
   justify-content: center;
   background: teal;
   height: 600px;
@@ -17,26 +18,39 @@ a {
 
 form {
   display: flex;
+  flex: auto;
   padding: 10px;
+
 }
 
 .Buttons {
+  margin: 20px;
+  width: 200px;
   padding: 5px;
+  display: block;
+  justify-content: space-around;
+  
 }
+
 
 [name="inputText"]{
  background-color: #00B7FF;
  border: none;
+ border-radius: 10px;
+ flex: auto;
 }
 
 
 [name="ouputText"] {
   background-color: #795994;
   border: none;
+  border-radius: 10px;
+  flex: auto;
 }
 
 .output-section {
   display: flex;
+  flex: auto;
   padding: 10px;
 
 }
@@ -44,15 +58,69 @@ form {
 [type="submit"] {
   background-color: orange;
   border: none;
+  width: auto;
+  padding: 10px  25px 10px 25px;
+  border-radius: 5px;
+}
+
+[type="submit"]:hover{
+  background-color: rgb(35, 243, 98);
 }
 
 [name="key"] {
   background-color: aqua;
   border: none;
+  border-radius: 5px;
   width: 50px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+[type="file"] {
+  background-color: orange;
+  border: none;
+  width: 180px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+hr {
+  width: 80px;
+  border: 1px  solid #bbb;
+}
+
+.choose-file-button {
+  position: relative;
+  left:3px;
+}
+
+.cypher-button {
+  background-color: orange;
+  border: none;
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.decypher-button {
+  background-color: orange;
+  border: none;
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .key {
-  background-color: rgb(212, 100, 25);
+  background-color: orange;
+  border: none;
   width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+p {
+  width: fit-content;
+  position: relative;
+  left: 40px;
 }

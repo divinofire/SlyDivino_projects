@@ -11,31 +11,35 @@
     <div class="main-display">
       <form action="/loadfile" method="post" enctype="multipart/form-data">
 		<div class="Buttons">
-			<p>
+			<p class ="choose-file-button">
 			  <input
 				type="file"
 				name="fileName"
 			  />
 			</p>
-			<p class="key">key <input name="key" type="number" value="<%= key %>" /></p>
-			<p>
+			<hr>
+			<p class="key">Key <input name="key" type="number" value="<%= key %>" /></p>
+			<hr>
+			<p class="cypher-button">
 			  <input
 				type="radio"
 				name="encrypt"
 				value="true"
 				checked="true"
-			  /><label>cypher</label>
+			  /><label>Cypher</label>
 			</p>
-			<p>
-			  <input type="radio" name="encrypt" value="false" /><label>decypher</label>
+			<p class="decypher-button">
+			  <input type="radio" name="encrypt" value="false" /><label>Decypher</label>
 			</p>
+			<hr>
 			<p>
 			  <button id="submitText" type="submit" formaction="/loadtext">
-				submit text
+				Submit Text
 			  </button>
 			</p>
+			<hr>
 			<p>
-				<input value="submit file" type="submit" />
+				<input value="Submit File" type="submit" />
 			</p>
 		  </div>
         <textarea name="inputText"><%= inputAreaText %></textarea>
