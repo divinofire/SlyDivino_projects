@@ -1,15 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Vampiro+One&display=swap');
+
 body {
   padding: 50px;
   height: 80vh;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Poppins" , Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+h1{
+  font-family: 'Vampiro One',Helvetica, Arial, sans-serif;
+  font-size: 66px;
+  margin: 5px 0px 50px 50px; 
+  width: fit-content;
 }
 
 .main-display {
   display: flex;
+  padding: 20px;
   justify-content: center;
   background: teal;
   height: 600px;
@@ -17,26 +23,43 @@ a {
 
 form {
   display: flex;
+  flex: auto;
   padding: 10px;
+
 }
 
 .Buttons {
+  margin: 20px;
+  width: 200px;
   padding: 5px;
+  display: block;
+  justify-content: space-around;
+  
 }
+
 
 [name="inputText"]{
  background-color: #00B7FF;
  border: none;
+ border-radius: 10px;
+ padding: 20px;
+ margin: 20px;
+ flex: auto;
 }
 
 
 [name="ouputText"] {
   background-color: #795994;
   border: none;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  flex: auto;
 }
 
 .output-section {
   display: flex;
+  flex: auto;
   padding: 10px;
 
 }
@@ -44,15 +67,85 @@ form {
 [type="submit"] {
   background-color: orange;
   border: none;
+  width: auto;
+  padding: 10px  25px 10px 25px;
+  border-radius: 5px;
+  font-family:  14px "Poppins" , Helvetica, Arial, sans-serif;
+}
+
+[type="submit"]:hover{
+  background-color: rgb(35, 243, 98);
 }
 
 [name="key"] {
-  background-color: aqua;
+  background-color: rgb(255, 206, 160);
   border: none;
+  border-radius: 5px;
   width: 50px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+[type="file"] {
+  background-color: orange;
+  border: none;
+  width: 180px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+[type="file"]:hover {
+  background-color: rgb(35, 243, 98);
+}
+
+
+hr {
+  width: 80px;
+  border: 1px  solid #bbb;
+}
+
+.choose-file-button {
+  position: relative;
+  left:3px;
+}
+
+.cypher-button {
+  background-color: orange;
+  border: none;
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.cypher-button:hover{
+  background-color: rgb(35, 243, 98);
+}
+
+.decypher-button {
+  background-color: orange;
+  border: none;
+  width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.decypher-button:hover{
+  background-color: rgb(35, 243, 98);
 }
 
 .key {
-  background-color: rgb(212, 100, 25);
+  background-color: orange;
+  border: none;
   width: 100px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.key:hover {
+  background-color: rgb(35, 243, 98);
+}
+
+p {
+  width: fit-content;
+  position: relative;
+  left: 40px;
 }
