@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Vampiro+One&display=swap');
+
 body {
   padding: 50px;
   height: 80vh;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Poppins" , Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+h1{
+  font-family: 'Vampiro One',Helvetica, Arial, sans-serif;
+  font-size: 66px;
+  margin: 5px 0px 50px 50px; 
+  width: fit-content;
 }
 
 .main-display {
@@ -37,6 +42,8 @@ form {
  background-color: #00B7FF;
  border: none;
  border-radius: 10px;
+ padding: 20px;
+ margin: 20px;
  flex: auto;
 }
 
@@ -45,6 +52,8 @@ form {
   background-color: #795994;
   border: none;
   border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
   flex: auto;
 }
 
@@ -61,6 +70,7 @@ form {
   width: auto;
   padding: 10px  25px 10px 25px;
   border-radius: 5px;
+  font-family:  14px "Poppins" , Helvetica, Arial, sans-serif;
 }
 
 [type="submit"]:hover{
@@ -68,7 +78,7 @@ form {
 }
 
 [name="key"] {
-  background-color: aqua;
+  background-color: rgb(255, 206, 160);
   border: none;
   border-radius: 5px;
   width: 50px;
@@ -82,6 +92,10 @@ form {
   width: 180px;
   padding: 10px;
   border-radius: 5px;
+}
+
+[type="file"]:hover {
+  background-color: rgb(35, 243, 98);
 }
 
 
@@ -102,6 +116,9 @@ hr {
   padding: 10px;
   border-radius: 5px;
 }
+.cypher-button:hover{
+  background-color: rgb(35, 243, 98);
+}
 
 .decypher-button {
   background-color: orange;
@@ -111,12 +128,20 @@ hr {
   border-radius: 5px;
 }
 
+.decypher-button:hover{
+  background-color: rgb(35, 243, 98);
+}
+
 .key {
   background-color: orange;
   border: none;
   width: 100px;
   padding: 10px;
   border-radius: 5px;
+}
+
+.key:hover {
+  background-color: rgb(35, 243, 98);
 }
 
 p {
