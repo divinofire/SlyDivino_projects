@@ -6,7 +6,7 @@ body {
   background-size: contain;
   background-blend-mode: multiply;
   padding: 50px;
-  height: 80vh;
+  height: 100%;
   font: 14px "Poppins" , Helvetica, Arial, sans-serif;
 }
 
@@ -72,6 +72,9 @@ form {
   background-color: #FAA364;
   border: none;
   width: auto;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 10px  25px 10px 25px;
   border-radius: 5px;
   font-family:  14px "Poppins" , Helvetica, Arial, sans-serif;
@@ -98,6 +101,9 @@ form {
   width: 180px;
   padding: 10px;
   border-radius: 5px;
+  margin: auto;
+  margin-top:5px;
+  margin-bottom: 5px;
 }
 
 [type="file"]:hover {
@@ -108,11 +114,7 @@ form {
 hr {
   width: 80px;
   border: 1px  solid #bbb;
-}
-
-.choose-file-button {
-  position: relative;
-  left:3px;
+  margin: auto;
 }
 
 .cypher-button {
@@ -120,6 +122,9 @@ hr {
   border: none;
   width: 100px;
   padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
 }
 .cypher-button:hover{
@@ -131,6 +136,9 @@ hr {
   border: none;
   width: 100px;
   padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
 }
 
@@ -143,6 +151,9 @@ hr {
   border: none;
   width: 100px;
   padding: 10px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
 }
 
@@ -152,13 +163,95 @@ hr {
 
 p {
   width: fit-content;
-  position: relative;
-  left: 40px;
+  margin: auto;
 }
 
 .copyright {
   color: #F4E7E5;
   opacity: 0.7;
-  position:relative;
-  left: 50%;
+  margin: auto;
+}
+
+
+@media (max-width:900px) {
+
+  body {
+    height: 100%;
+  }
+
+  h1 {
+    font-size: 44px;
+    margin-bottom: 5px;
+  }
+.main-display {
+  display: block;
+  width: auto;
+  height: auto;
+} 
+
+form {
+  display: grid;
+ 
+}
+
+.Buttons {
+  display: flex;
+  margin: 0px 0px;
+  height: auto;
+  width: auto;
+  flex-flow: wrap;
+  
+}
+ hr {
+   display: none;
+ }
+
+ [name="inputText"] {
+   margin: 0px 0px;
+   width: auto;
+   height: 200px;
+   padding: 10px;
+   font-size: small;
+   flex: auto;
+   
+ }
+
+ [name="ouputText"] {
+   margin:  0px 0px;
+   font-size: small;
+   height: 200px;
+   padding: 10px;
+   flex: auto;
+ }
+
+ .choose-file-button {
+  position: relative;
+  left:0px;
+  
+
+ }
+
+ [type="submit"] {
+   font-size: small;
+ }
+
+ p {
+   height: fit-content;
+   width: fit-content;
+   
+ }
+
+ .cypher-button {
+  font-size: small;
+}
+
+.decypher-button {
+  font-size: small;
+}
+
+.key {
+  font-size: small;
+  padding: 5px;
+}
+
 }
