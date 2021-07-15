@@ -14,7 +14,7 @@ initialTask_dict = {0: "add todos", 1: "complete your todos", 2:"delete complete
 task_button_dict = {}
 
 #set window name, initial size,  ------------------------------------------------------------------------
-root.title("todo App")
+root.title("Todo App")
 root.geometry('900x600+300+50')
 root.config(bg = "Light Blue")
 root.option_add('*Font', '40')
