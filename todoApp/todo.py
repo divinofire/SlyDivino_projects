@@ -12,7 +12,7 @@ bg4 = "#e9c5d3"
 
 
 #set window name, initial size,  ------------------------------------------------------------------------
-root.title("todo App")
+root.title("Todo App")
 root.geometry('900x600+300+50')
 root.config(bg = "Light Blue")
 root.option_add('*Font', '40')
