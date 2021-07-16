@@ -4,11 +4,11 @@ from tkinter import font
 from tkinter import ttk
 from UI.ScrollableFrame import ScrollableFrame 
 from scripts.file_manager import FileManager
-from UI.cool_functions import dict_from_list
-todo_database = "scripts/todo_database.sly" # database of our todos
-# todo_database_path = os.path.join(os.getcwd(), todo_database)
-DBMS = FileManager()
-DBMS.use(todo_database)
+from scripts.cool_functions import dict_from_list
+todo_database = "scripts/todo_database.sly" # database for our todos
+
+todo_database_manager= FileManager() #  made merged
+todo_database_manager.use(todo_database)
 
 # root of app, similar to the foundation of a house on which we start laying blocks but in this case we lay widgets
 root = tk.Tk() 
@@ -20,7 +20,7 @@ bg3 = "black"
 bg4 = "#e9c5d3"
 bg5 = "#d82382"
 
-initialTask_dict = DBMS.readLines() # load existing todos
+initialTask_dict = todo_database_manager.readLines() # load existing todos
 initialTask_dict = dict_from_list(initialTask_dict)
 task_button_dict = {}
 
@@ -123,7 +123,7 @@ def add_task():
 	my_new_task = newTask.get()
 	if (my_new_task):
 		initialTask_dict.update({"a":my_new_task})
-		DBMS.append(my_new_task)
+		todo_database_manager.append(my_new_task)
 		update_tasks_on_UI()
 
 
@@ -135,7 +135,7 @@ def remove_task(task_button_index):
 	task_button_dict[task_button_index].destroy()
 	task_button_dict.pop(task_button_index)
 	initialTask_dict.pop(task_button_index)
-	DBMS.removeLine(task_button_index)
+	todo_database_manager.removeLine(task_button_index)
 	update_tasks_on_UI()
 	print(initialTask_dict)
 

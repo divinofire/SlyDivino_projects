@@ -1,7 +1,7 @@
 import os
 import shutil
 
-class FileManager:
+class FilesManager:
 	#file_name = file_name
 	# create folder -------------------------------------------------------------------------------
 	def __init__(self):

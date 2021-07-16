@@ -1,3 +1,7 @@
+
+#file manager class
+#Author: SlyDivino
+
 import os
 import shutil
 join = os.path.join

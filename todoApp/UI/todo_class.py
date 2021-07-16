@@ -8,7 +8,7 @@ When this widget manager is complete, I will use it as the manager for the todo 
 Author: SlyDivino
 '''
 
-from cool_functions import numerifyKeysOf
+
 from tkinter import *
 
 
@@ -50,7 +50,7 @@ class App(object):
         self.buttonList[button_no].destroy()
         self.buttonList.pop(button_no) # remove button from button list after destroy
         self.todoList.pop(button_no)
-        numerifyKeysOf(self.todoList)
+        self.numerifyKeysOf(self.todoList)
         print(self.todoList)
         
         
@@ -59,7 +59,7 @@ class App(object):
         entry = self.entryBox.get()
         self.entryBox.delete(0, END)
         self.todoList.update({len(self.todoList) : entry})
-        numerifyKeysOf(self.todoList)
+        self.numerifyKeysOf(self.todoList)
         print(self.todoList)
         var = IntVar()
         n = len(self.buttonList)
@@ -95,6 +95,14 @@ class App(object):
     			lx = Checkbutton(self.listFrame, text=self.todoList[n], variable = self.todoList[n], command=lambda n=n: self.removeCheckButton(n)) 
     			lx.grid(row=n, column=0, sticky='NW')
     			self.buttonList.append(lx)
+
+    def numerifyKeysOf(self,dictionary):
+        new_dict = {}
+        i = 0
+        for key in dictionary:
+            new_dict.update({i: dictionary[key]})
+            i += 1
+        return new_dict
 
 
 root = Tk()
