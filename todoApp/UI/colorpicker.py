@@ -1,3 +1,8 @@
+# I modified this color picker app to enable me to copy color to clipboard after I pick my color
+# this was used to select colors for the todo app
+
+# author: SlyDivino  
+
 from tkinter import *
 from tkinter import colorchooser
 

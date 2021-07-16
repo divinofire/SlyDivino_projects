@@ -1,20 +1,32 @@
+import os
 import tkinter  as tk
 from tkinter import font
 from tkinter import ttk
-from UI.ScrollableFrame import ScrollableFrame
+from UI.ScrollableFrame import ScrollableFrame 
+from scripts.file_manager import FileManager
+from UI.cool_functions import dict_from_list
+todo_database = "scripts/todo_database.sly" # database of our todos
+# todo_database_path = os.path.join(os.getcwd(), todo_database)
+DBMS = FileManager()
+DBMS.use(todo_database)
 
-root = tk.Tk()
+# root of app, similar to the foundation of a house on which we start laying blocks but in this case we lay widgets
+root = tk.Tk() 
 
+# declare some colors to use globally (colorpi)
 bg1 = "Light Green"
 bg2 = "Light Blue"
 bg3 = "black"
 bg4 = "#e9c5d3"
+bg5 = "#d82382"
 
-initialTask_dict = {0: "add todos", 1: "complete your todos", 2:"delete completed todos", 3:"delete unnecessary todos", 4:"add new todos"}
+initialTask_dict = DBMS.readLines() # load existing todos
+initialTask_dict = dict_from_list(initialTask_dict)
 task_button_dict = {}
 
+
 #set window name, initial size,  ------------------------------------------------------------------------
-root.title("todo App")
+root.title("Todo App")
 root.geometry('900x600+300+50')
 root.config(bg = "Light Blue")
 root.option_add('*Font', '40')
@@ -51,7 +63,11 @@ tasks_check_buttons_Frame.pack(side = tk.LEFT, fill = tk.Y) # pack tasks to the 
 #new task entry widget --------------------------------------------------------------------------------------
 newTask = tk.Entry(addTaskFrame, width = 60)
 newTask_label = tk.Label(addTaskFrame, text = "New Task")
-addTask_button = tk.Button(addTaskFrame, text = "Add Task", command = lambda: add_task(), fg= "white", bg = "#d82382" , activebackground = "white", activeforeground="black")
+addTask_button = tk.Button(addTaskFrame, text = "Add Task", command = lambda: add_task(), fg= "white", bg = bg5 , activebackground = "white", activeforeground="black")
+
+
+#bind <enter key> press to newTask entry widget
+newTask.bind('<Return>', lambda e: add_task())
 
 #arrange widgets in new task frame---------------------------------------------------------------------
 newTask_label.pack(side = tk.LEFT, padx = 50)
@@ -68,7 +84,7 @@ taskFrame2.pack(side = tk.LEFT, pady = 10)
 delete.pack(side = tk.LEFT, padx = 20, pady = 50)
 
 
-# fill task_check_buttons_frame with task labels from list (fonts) -------------------------------------------------
+# refresh tasks  ::  fill task_check_buttons_frame with task labels from list (fonts) -------------------------------------------------
 
 def refresh_tasks():
 	i = 0
@@ -97,16 +113,21 @@ def refresh_tasks():
 			#number.pack(side = "top", fill="both", pady = 10)
 		but +=1
 
+# refresh_tasks when the program starts ------------------------------------------------------------------------
 refresh_tasks()
 
+
+# --------add task to list of tasks and afer that update UI to reflect changes ------------------------------------
 def add_task():
 	global initialTask_dict
 	my_new_task = newTask.get()
-	initialTask_dict.update({"new":my_new_task})
-	update_tasks_on_UI()
+	if (my_new_task):
+		initialTask_dict.update({"a":my_new_task})
+		DBMS.append(my_new_task)
+		update_tasks_on_UI()
 
 
-
+# -----------remove task from list of tasks then update UI ------------------------------------------------------
 def remove_task(task_button_index):
 	global task_button_dict
 	global initialTask_dict
@@ -114,9 +135,11 @@ def remove_task(task_button_index):
 	task_button_dict[task_button_index].destroy()
 	task_button_dict.pop(task_button_index)
 	initialTask_dict.pop(task_button_index)
+	DBMS.removeLine(task_button_index)
 	update_tasks_on_UI()
 	print(initialTask_dict)
 
+# ---------- update tasks on UI, similar to refresh task but more powerful -------------------------------------------------
 def update_tasks_on_UI():
 	global initialTask_dict
 	temp_list = initialTask_dict
@@ -124,6 +147,7 @@ def update_tasks_on_UI():
 	initialTask_dict = numerifyKeysOf(temp_list)
 	refresh_tasks()
 
+# ------------ remove all tasks  without updating ui ------------------------------------------------------------------
 def remove_all_tasks():
 	global task_button_dict
 	global initialTask_dict

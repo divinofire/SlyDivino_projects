@@ -1,4 +1,12 @@
-# this is a third party class
+'''I found this class somewhere on stack-exchange and I intent to turn it into a widget manager
+for todo apps, notebook apps and email apps, i have already modified the class extensively
+and I will keep modifying it in the future untill my goal is achieved, I may cancel everything and 
+start design from scratch but one thing is sure: I will have a widget manager at the end
+
+When this widget manager is complete, I will use it as the manager for the todo app
+
+Author: SlyDivino
+'''
 
 from cool_functions import numerifyKeysOf
 from tkinter import *
@@ -42,6 +50,7 @@ class App(object):
         self.buttonList[button_no].destroy()
         self.buttonList.pop(button_no) # remove button from button list after destroy
         self.todoList.pop(button_no)
+        numerifyKeysOf(self.todoList)
         print(self.todoList)
         
         
@@ -49,7 +58,8 @@ class App(object):
     def add(self):
         entry = self.entryBox.get()
         self.entryBox.delete(0, END)
-        self.todoList.update({len(todoList), entry})
+        self.todoList.update({len(self.todoList) : entry})
+        numerifyKeysOf(self.todoList)
         print(self.todoList)
         var = IntVar()
         n = len(self.buttonList)
@@ -61,23 +71,22 @@ class App(object):
                          command=lambda n=n: self.removeCheckButton(n)) # couldn't pass argument directly to remove.. without lambda function
                          #command=self.removeCheckButton(n))
         lx.grid(row=n, column=0, sticky='NW')
-        self.buttonList.append(lx)
-        #n = len(self.buttonList)
-        #   print(self.buttonList)
+        self.buttonList.update({len(self.buttonList): lx})
+        
 
     def delete_all(self):
     	for but in self.buttonList:
-    		but.destroy()
-    	self.buttonList = []
-    	self.todoList = []
+    		self.buttonList[but].destroy()
+    	self.buttonList = {}
+    	self.todoList = {}
 
     def fix_me(self):
     	tempList = self.buttonList
     	tempTodo = self.todoList
     	for but in self.buttonList:
     		but.destroy()
-    	self.buttonList = []
-    	self.todoList = []
+    	self.buttonList = {}
+    	self.todoList = {}
     	self.todoList = tempTodo
 
     	nn = len(self.todoList)
@@ -86,6 +95,7 @@ class App(object):
     			lx = Checkbutton(self.listFrame, text=self.todoList[n], variable = self.todoList[n], command=lambda n=n: self.removeCheckButton(n)) 
     			lx.grid(row=n, column=0, sticky='NW')
     			self.buttonList.append(lx)
+
 
 root = Tk()
 app = App(root)
