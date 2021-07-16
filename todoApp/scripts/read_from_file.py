@@ -1,18 +1,41 @@
+#----- @Read a particular line from file -------------
 
-def readFromFile(file_name):
-    
+#define Filename and line to be read
+def readFromFile(file_name,fileLine):
+
     #locate and open file -------------------------   
     file = open(file_name,'r')
 
-    #read and return desired line -----------------
+    #hold all the lines after being read
+    lines = list()
+
+    #read all lines -----------------------------
     for lineNumber , content in enumerate(file):
+        
+        #add lines to container
+         lines.append(lineNumber)
 
-        #return first line
-        if lineNumber == 0:
+        #return disired line ---------------
+         if lineNumber == fileLine:
             return(content)
-    
-    #close file
-    file.close
+    #feedback for non  existing lines
+    if fileLine not in lines:
+        return ("Line "+str(fileLine)+" Doesn't exist")
+       
+       
 
-#test output --------------------------------------
-print(readFromFile("testfile.txt"))
+
+#----------------- OR ------------------
+
+
+
+# ------------- @Read the entire file -------------
+
+def readWHoleFile(file_name):
+    file = open(file_name,'r')
+    return file.read()       
+
+ #test output --------------------------------------
+ #print(readFromFile("testfile.txt",4))
+ #print(readWHoleFile("testfile.txt"))
+
