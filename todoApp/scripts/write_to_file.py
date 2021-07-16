@@ -35,15 +35,16 @@ def LinesToFile(file_name):
 
         #Add user input to file
         file.write("\n"+content)
-        file.close()
 
         NumberOfLines -= 1
         if NumberOfLines == 0:
-            break
+          file.close()
+          break
+            
 
     
 
-#test output --------------------------------------
-#writeToFile("testfile.txt")
+# ------------@ test output 
 
+#writeToFile("testfile.txt")
 LinesToFile("testfile.txt")

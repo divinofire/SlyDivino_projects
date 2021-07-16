@@ -35,7 +35,7 @@ def readWHoleFile(file_name):
     file = open(file_name,'r')
     return file.read()       
 
- #test output --------------------------------------
- #print(readFromFile("testfile.txt",4))
- #print(readWHoleFile("testfile.txt"))
+#test output --------------------------------------
+#print(readFromFile("/testfile.txt",4))
+print(readWHoleFile("testfile.txt"))
 
