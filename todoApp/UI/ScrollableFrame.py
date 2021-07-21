@@ -1,5 +1,6 @@
-'''this is a third party class I found somewhere online (i have forgotten where, maybe stackexchange),
- I modified it to suit my needs
+'''
+this is a third party class I found somewhere online (i have forgotten where, maybe stackexchange),
+I modified it to suit my needs
 
 author: SlyDivino
  '''

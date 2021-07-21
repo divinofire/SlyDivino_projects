@@ -5,9 +5,10 @@ from tkinter import ttk
 from UI.ScrollableFrame import ScrollableFrame 
 from scripts.file_manager import FileManager
 from scripts.cool_functions import dict_from_list
-todo_database = "scripts/todo_database.sly" # database for our todos
+todo_database = "todo_database.sly" # database for our todos
 
-todo_database_manager= FileManager() #  made merged
+todo_database_manager= FileManager()
+todo_database_manager.change_to_relative_dir('./scripts')
 todo_database_manager.use(todo_database)
 
 # root of app, similar to the foundation of a house on which we start laying blocks but in this case we lay widgets
@@ -63,7 +64,7 @@ tasks_check_buttons_Frame.pack(side = tk.LEFT, fill = tk.Y) # pack tasks to the 
 #new task entry widget --------------------------------------------------------------------------------------
 newTask = tk.Entry(addTaskFrame, width = 60)
 newTask_label = tk.Label(addTaskFrame, text = "New Task")
-addTask_button = tk.Button(addTaskFrame, text = "Add Task", command = lambda: add_task(), fg= "white", bg = bg5 , activebackground = "white", activeforeground="black")
+addTask_button = tk.Button(addTaskFrame, text = "Add Task", command = lambda: dd_task(), fg= "white", bg = bg5 , activebackground = "white", activeforeground="black")
 
 
 #bind <enter key> press to newTask entry widget
@@ -102,11 +103,11 @@ def refresh_tasks():
 		if (i%2 == 1):
 			number = tk.Label(task_numbering_frame, text=str(i), anchor="w", bg="blue", height=2)
 			#number.pack(side = "top", fill="both", pady=2)
-			task = tk.Checkbutton(tasks_check_buttons_Frame, command = lambda e=but: remove_task(e),  bg=bg4, font=(font_, 12) ,text = str(i) + ".  " + str(initialTask_dict[font_]), anchor="w", height=2, width=50)
+			task = tk.Checkbutton(tasks_check_buttons_Frame, command = lambda e=but: remove_task(e),  bg=bg4, font=(font_, 12) ,text = str(i) + ".  " + str(initialTask_dict[font_]), anchor="w", height=2, width=70)
 			task.pack(side = "top", fill="both")
 			task_button_dict.update({but : task})
 		else:
-			task = tk.Checkbutton(tasks_check_buttons_Frame, command = lambda e=but: remove_task(e), font=(font_, 12) ,text = str(i) + ".  " + str(initialTask_dict[font_]), anchor="w", height=2, width=50)
+			task = tk.Checkbutton(tasks_check_buttons_Frame, command = lambda e=but: remove_task(e), font=(font_, 12) ,text = str(i) + ".  " + str(initialTask_dict[font_]), anchor="w", height=2, width=70)
 			task.pack(side = "top", fill="both")
 			number = tk.Label(task_numbering_frame, text=str(i), anchor="w", bg="pink", height=2)
 			task_button_dict.update({but : task})
@@ -142,9 +143,9 @@ def remove_task(task_button_index):
 # ---------- update tasks on UI, similar to refresh task but more powerful -------------------------------------------------
 def update_tasks_on_UI():
 	global initialTask_dict
-	temp_list = initialTask_dict
+	temp_dict = initialTask_dict
 	remove_all_tasks()
-	initialTask_dict = numerifyKeysOf(temp_list)
+	initialTask_dict = numerifyKeysOf(temp_dict)
 	refresh_tasks()
 
 # ------------ remove all tasks  without updating ui ------------------------------------------------------------------
@@ -171,8 +172,28 @@ def numerifyKeysOf(dictionary):
 #print(task_button_dict)
 #scrollbar.config(command = scroll_buttons_and_list)
 
+#task_button_dict[1]["text"] = "Divine"
 
 # hang program in infinite loop while checking for changes in root------------------------------------------------------------------------------
 root.mainloop()
 
 
+'''
+Notes for future changes 
+
+the update_task_on_UI function is resource intensive as the function destroys all task checkbutton widgets
+before creating them back, the app may be slow to respond on add and delete if about 100 tasks exist
+To fix this, we should not destroy the task checkbutton widgets but change only the text on the widgets
+
+for example
+
+i = 1
+for todo in todos:
+	if (todo_buttons[i]["text"].splice(".")[0] != str(i))
+		todo_buttons[i]["text"] = str(i) + ".  " + todo
+
+
+create a way for a user add sub tasks under a choosen task
+
+create a way to retrieve users tasks via email
+'''
