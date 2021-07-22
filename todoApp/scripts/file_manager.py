@@ -18,14 +18,16 @@ class FileManager:
 		self.mylist = []
 
 
-	# change working directory ----------------------------------------------------------------------
+	# change working directory (provide absolute path) ----------------------------------------------------------------------
 
 	def change_directory(self, directory_path):
 		self.directory = directory_path
 
+	# go to a directory relative to current directory ------------------------------------------------------------------------
 	def change_to_relative_dir(self, relative_path):
 		self.directory = join(self.directory, relative_path)
 
+	#go to home directory of the script running FileManager -------------------------------------------------------------
 	def go_to_home_dir(self):
 		self.change_directory(os.getcwd());
 
@@ -79,7 +81,7 @@ class FileManager:
 	        return line
 	    except:
 	        return ''
-
+	# read content from file as a whole string -------------------------------------------------------------------------
 	def readContent(self):
 		file = open(self.file_name,'r')
 		content_list = file.readlines()
@@ -156,22 +158,25 @@ class FileManager:
 	# get list of files --------------------------------------------------------------------------
 	def get_files(self):
 		file_list = []
-
-		for item in os.listdir(self.directory):
-			if self.isFile(join(self.directory, item)):
-				file_list.append(item)
-				#print(item)
-
+		try:
+			for item in os.listdir(self.directory):
+				if self.isFile(join(self.directory, item)):
+					file_list.append(item)
+					#print(item)
+		except:
+			pass
 		return file_list
 
 	# get list of directories --------------------------------------------------------------------
 	def get_dirs(self): 
 		folder_list = []
-
-		for item in os.listdir(self.directory):
-			if self.isDirectory(join(self.directory, item)):
-				folder_list.append(item)
-				#print(item)
+		try:
+			for item in os.listdir(self.directory):
+				if self.isDirectory(join(self.directory, item)):
+					folder_list.append(item)
+					#print(item)
+		except:
+			pass
 
 		return folder_list
 
@@ -189,35 +194,36 @@ class FileManager:
 		file_and_folders = self.get_dirs() + self.get_files()
 		return file_and_folders
 
-	# get tree of files (dictionary of files and folders) --------------------------------------------------------
-	
-	
-	def print_file_tree(self):
-		
-		#print(self.directory)
+
+	# generate file tree by populating self.mylist with the file tree ------------------------------------------------------------------
+	def generate_file_tree(self):
 		space = '	'
 		for file in self.get_files():
-			#self.mylist.append( space* self.no + file)
-			print( space* self.no + file)
+			self.mylist.append( space* self.no + file)
 
 		for folder in self.get_dirs():
-			#self.mylist.append( space * self.no + '**'+folder)
-			#print( space* self.no + folder)
-			#current_folder = self.directory
-			#print(self.directory)
-			print(True)
-			self.change_directory(join(db.directory, folder))
-			#print(self.directory)
+			self.mylist.append( space * self.no + '**'+folder)
+			self.change_to_relative_dir(folder)
 			self.no += 1
-			self.print_file_tree()
-			
-			#self.change_directory("")
+			self.generate_file_tree()
 
-		for item in self.mylist:
-			print(item)
 		self.no = 1
 		self.directory = self.temp
 
+	# return file tree as a list ------------------------------------------------------------------------------------------
+	def get_file_tree_list(self):
+
+			self.generate_file_tree()
+			temp = self.mylist
+			self.mylist = []
+			return temp
+
+	# print file tree to console ----------------------------------------------------------------------------------------------------
+	def print_file_tree(self):
+		for item in self.get_file_tree_list():
+			print(item)
+
+	# print file tree to console with all files and folders having absolute paths
 	def print_file_tree_R(self):
 		for root, directories, files in os.walk(self.directory, topdown = False):
 			for file in files:
@@ -404,7 +410,21 @@ class FileManager:
 # 	db.delete_folder("folder")
 
 
+manager = FileManager("../../../SlyDivino_projects/cypherApp/")
+print(manager.directory)
+#manager.change_to_relative_dir("todoApp/")
+print(manager.directory)
 
+# print(manager.get_dirs())
+# print("---file tree----")
+manager.print_file_tree()
+
+# for folder in manager.get_dirs():
+# 	try:
+# 		manager.change_directory(join("../../../arduino_proteus_projects/.git", folder))
+# 		manager.print_file_tree()
+# 	except:
+# 		pass
 
 
 

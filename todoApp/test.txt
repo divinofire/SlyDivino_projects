@@ -1,1 +1,4 @@
-
+delete folder using rmdir /s foldername
+this is line 2
+manipulate these lines with the help of fileManger class
+this is line 4
