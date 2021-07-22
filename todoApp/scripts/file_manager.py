@@ -22,10 +22,16 @@ class FileManager:
 
 	def change_directory(self, directory_path):
 		self.directory = directory_path
+		self.temp = self.directory # global variable to watch self.directory
 
 	# go to a directory relative to current directory ------------------------------------------------------------------------
-	def change_to_relative_dir(self, relative_path):
+	def go_to_relative_directory(self, relative_path):
 		self.directory = join(self.directory, relative_path)
+
+	# go to a directory relative to current directory (for user)
+	def go_to_relative_dir(self, relative_path):
+		self.directory = join(self.directory, relative_path)
+		self.temp = self.directory
 
 	#go to home directory of the script running FileManager -------------------------------------------------------------
 	def go_to_home_dir(self):
@@ -158,25 +164,23 @@ class FileManager:
 	# get list of files --------------------------------------------------------------------------
 	def get_files(self):
 		file_list = []
-		try:
-			for item in os.listdir(self.directory):
-				if self.isFile(join(self.directory, item)):
-					file_list.append(item)
-					#print(item)
-		except:
-			pass
+		
+		for item in os.listdir(self.directory):
+			if self.isFile(join(self.directory, item)):
+				file_list.append(item)
+				#print(item)
+		
 		return file_list
 
 	# get list of directories --------------------------------------------------------------------
 	def get_dirs(self): 
 		folder_list = []
-		try:
-			for item in os.listdir(self.directory):
-				if self.isDirectory(join(self.directory, item)):
-					folder_list.append(item)
-					#print(item)
-		except:
-			pass
+		
+		for item in os.listdir(self.directory):
+			if self.isDirectory(join(self.directory, item)):
+				folder_list.append(item)
+				#print(item)
+		
 
 		return folder_list
 
@@ -203,7 +207,9 @@ class FileManager:
 
 		for folder in self.get_dirs():
 			self.mylist.append( space * self.no + '**'+folder)
-			self.change_to_relative_dir(folder)
+			if folder[0] == "." :
+				continue
+			self.go_to_relative_directory(folder)
 			self.no += 1
 			self.generate_file_tree()
 
@@ -410,12 +416,12 @@ class FileManager:
 # 	db.delete_folder("folder")
 
 
-manager = FileManager("../../../SlyDivino_projects/todoApp/")
+manager = FileManager("../../../../Desktop")
 print(manager.directory)
-#manager.change_to_relative_dir("todoApp/")
+# manager.go_to_relative_dir("cypherApp")
 print(manager.directory)
 
-# print(manager.get_dirs())
+print(manager.get_dirs())
 # print("---file tree----")
 manager.print_file_tree()
 
