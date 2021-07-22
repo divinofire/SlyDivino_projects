@@ -410,7 +410,7 @@ class FileManager:
 # 	db.delete_folder("folder")
 
 
-manager = FileManager("../../../SlyDivino_projects/cypherApp/")
+manager = FileManager("../../../SlyDivino_projects/todoApp/")
 print(manager.directory)
 #manager.change_to_relative_dir("todoApp/")
 print(manager.directory)
