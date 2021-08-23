@@ -3,7 +3,7 @@
 
 ## Made projects
 1. cypherApp (Ncript) -- completed
-2. todo App -- in progress
+2. todo App -- completed
 
 ## some basic git commands for collaborators to remember (preq: install git)
 
