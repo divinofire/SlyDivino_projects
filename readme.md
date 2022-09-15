@@ -1,5 +1,5 @@
 # SlyDivino projects
- a github repository of all online executed projects done by Sly and Divino (along other contributors).
+ A github repository of all online executed projects done by Sly and Divino (along other contributors).
 
 ## Made projects
 1. cypherApp (Ncript) -- completed
@@ -9,7 +9,7 @@
 
 ### 1. clone this repository on local machine 
 go to your desired folder and perform the following command
-`git clone https://github.com/Divino-Fire/SlyDivino_projects.git`
+`git clone https://github.com/divinofire/SlyDivino_projects.git`
 
 ### 2. after desired edits, push your changes to cloud
 `git push origin master`
