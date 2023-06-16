@@ -13,7 +13,7 @@ and outputs the results in an output window
 
 ## clone this repo
 ```
-git clone https://github.com/Divino-Fire/SlyDivino_projects.git
+git clone https://github.com/divinofire/SlyDivino_projects.git
 
 ```
 ## install dependencies (this will automatically install required dependencies in your cloned repo
