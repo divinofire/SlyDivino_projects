@@ -30,7 +30,7 @@ npm install express express-session body-parser ejs consolidate swig morgan expr
 ## run application
 1. on powershell: `$env:DEBUG='cypherApp:*'; npm start` 
 2. on cmd: `set DEBUG=cypherApp:* & npm start`
-3. on macOS or linux : `DEBUG=cypherApp:* & npm start`
+3. on terminal : `DEBUG=cypherApp:* & npm start`
 
 ## access running application on local machine
 on your browser : `http://localhost:3000` (you can change this value in the app)
