@@ -37,8 +37,6 @@ on your browser : `http://localhost:3000` (you can change this value in the app)
 
 ---
 
-**NB. before you can make changes, ask Divino-Fire to make you a collaborator and you must own a github account**
-
 
 ## push your changes
 ```
